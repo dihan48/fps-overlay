@@ -1,0 +1,11 @@
+{
+  "name": "fps-overlay",
+  "main": "main.js",
+  "version": "1.0.0",
+  "scripts": {
+    "start": "electron ."
+  },
+  "dependencies": {
+    "electron": "^32.0.0"
+  }
+}
