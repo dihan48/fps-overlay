@@ -3,7 +3,8 @@ const {app, BrowserWindow, screen} = require('electron')
 app.commandLine.appendSwitch('disable-gpu-vsync')
 app.commandLine.appendSwitch('disable-frame-rate-limit')
 app.commandLine.appendSwitch('enable-begin-frame-scheduling')
-app.commandLine.appendSwitch('disable-gpu-compositing')
+app.commandLine.appendSwitch('enable-webgl')
+app.commandLine.appendSwitch('ignore-gpu-blacklist')
 app.commandLine.appendSwitch('disable-features', 'CalculateNativeWinOcclusion')
 app.commandLine.appendSwitch('disable-renderer-backgrounding')
 app.commandLine.appendSwitch('disable-background-timer-throttling')
@@ -16,7 +17,7 @@ function createWindow(){
     height: height,
     frame: false,
     alwaysOnTop: true,
-    focusable: true,
+    focusable: false,
     transparent: true,
     skipTaskbar: true,
     hasShadow: false,
@@ -30,6 +31,7 @@ function createWindow(){
   })
 
   win.loadFile("index.html")
+  win.setIgnoreMouseEvents(true)
   win.webContents.openDevTools()
 }
 
