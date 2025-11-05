@@ -12,7 +12,7 @@ resize()
 
 // heavy particles
 let particles = []
-for (let i = 0; i < 600; i++) {
+for (let i = 0; i < 10000; i++) {
   particles.push({
     x: Math.random() * canvas.width,
     y: Math.random() * canvas.height,

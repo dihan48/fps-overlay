@@ -1,4 +1,4 @@
-const {app, BrowserWindow} = require('electron')
+const {app, BrowserWindow, screen} = require('electron')
 
 app.commandLine.appendSwitch('disable-gpu-vsync')
 app.commandLine.appendSwitch('disable-frame-rate-limit')
@@ -10,12 +10,13 @@ app.commandLine.appendSwitch('disable-background-timer-throttling')
 app.commandLine.appendSwitch('disable-backgrounding-occluded-windows')
 
 function createWindow(){
+  const { width, height } = screen.getPrimaryDisplay().workAreaSize
   const win = new BrowserWindow({
-    width: 1000,
-    height: 600,
+    width: width,
+    height: height,
     frame: false,
     alwaysOnTop: true,
-    focusable: false,
+    focusable: true,
     transparent: true,
     skipTaskbar: true,
     hasShadow: false,
@@ -29,6 +30,7 @@ function createWindow(){
   })
 
   win.loadFile("index.html")
+  win.webContents.openDevTools()
 }
 
 app.whenReady().then(createWindow)
