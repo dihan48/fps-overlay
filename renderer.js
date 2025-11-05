@@ -97,7 +97,7 @@ function tick(ts) {
     document.getElementById("fps").textContent = fps
   }
 
-  // if (ts - last > 33) { // 30fps throttle
+  if (ts - last > 16) { // 30fps throttle
     frames++
     // for (let i = 0; i < 100000000; i++) {
     //   Math.sqrt(i);
@@ -136,7 +136,7 @@ function tick(ts) {
     gl.drawArrays(gl.POINTS, 0, numParticles)
 
     last = ts
-  // }
+  }
 
   requestAnimationFrame(tick)
 }

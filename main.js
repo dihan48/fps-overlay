@@ -1,7 +1,7 @@
 const {app, BrowserWindow, screen} = require('electron')
 
-app.commandLine.appendSwitch('disable-gpu-vsync')
-app.commandLine.appendSwitch('disable-frame-rate-limit')
+// app.commandLine.appendSwitch('disable-gpu-vsync')
+// app.commandLine.appendSwitch('disable-frame-rate-limit')
 app.commandLine.appendSwitch('enable-begin-frame-scheduling')
 app.commandLine.appendSwitch('enable-webgl')
 app.commandLine.appendSwitch('ignore-gpu-blacklist')
@@ -9,6 +9,7 @@ app.commandLine.appendSwitch('disable-features', 'CalculateNativeWinOcclusion')
 app.commandLine.appendSwitch('disable-renderer-backgrounding')
 app.commandLine.appendSwitch('disable-background-timer-throttling')
 app.commandLine.appendSwitch('disable-backgrounding-occluded-windows')
+app.disableHardwareAcceleration()
 
 function createWindow(){
   const { width, height } = screen.getPrimaryDisplay().workAreaSize
